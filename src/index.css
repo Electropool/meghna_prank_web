@@ -1,0 +1,194 @@
+:root {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #1a1a1a;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  --button-size: 300px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.button-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.prank-button {
+  width: var(--button-size);
+  height: var(--button-size);
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 50%;
+  object-fit: contain;
+  transition: transform 0.1s ease;
+  will-change: transform;
+}
+
+.prank-button:active {
+  transform: scale(0.95);
+}
+
+.click-me-indicator {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  animation: bounce 2s infinite ease-in-out;
+  white-space: nowrap;
+}
+
+.indicator-text {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ff4757;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+}
+
+.indicator-arrow {
+  font-size: 3.5rem;
+  color: #ff4757;
+  line-height: 1;
+  margin-top: -5px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(15px); }
+}
+
+.sticker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+  will-change: transform;
+}
+
+.sticker-image {
+  width: 180px;
+  height: auto;
+  display: block;
+  opacity: 0.6;
+  filter: blur(0.5px);
+}
+
+.discord-community {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: #5865F2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+  z-index: 20;
+}
+
+.discord-community:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+  background-color: #4752c4;
+}
+
+.discord-logo {
+  width: 24px;
+  height: auto;
+  display: block;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  :root {
+    --button-size: 200px;
+  }
+  
+  .indicator-text {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .indicator-arrow {
+    font-size: 2.5rem;
+  }
+  
+  .click-me-indicator {
+    top: -70px;
+  }
+
+  .sticker-image {
+    width: 120px;
+  }
+
+  .discord-community {
+    bottom: 15px;
+    left: 15px;
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+
+  .discord-logo {
+    width: 20px;
+    height: 20px;
+  }
+}
